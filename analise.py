@@ -23,14 +23,24 @@ plt.show()
 matriculados = pd.read_csv('./matriculas_2022.csv', usecols=[2,5])
 
 mat_serie_list = []
+n_mat_serie_list = []
 
 for i in matriculados.itertuples():
+    content = str(i[2]).split("(")
     if not pd.isnull(i[1]):
-        content = str(i[2]).split("(")
         if content[1] == aux:
             mat_serie_list.append(content[0])
+    else:
+        if content[1] == aux:
+            n_mat_serie_list.append(content[0])
 
 print("quantidade de matriculados do ensino médio ->",len(mat_serie_list))
 
 plt.hist(mat_serie_list,bins=20)
+plt.show()
+
+
+#Análise dos não matriculados======================================#
+print("quantidade de não matriculados do ensino médio -> ", len(n_mat_serie_list))
+plt.hist(n_mat_serie_list, bins=20)
 plt.show()
