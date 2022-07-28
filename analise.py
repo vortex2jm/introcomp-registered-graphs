@@ -14,7 +14,7 @@ for i in serie_column.itertuples():
     if content[1] == aux:
         insc_serie_list.append(content[0])
 print("quantidade de inscritos do ensino médio ->",len(insc_serie_list))
-
+insc_serie_list.sort()
 plt.hist(insc_serie_list, bins=20)
 plt.show()
 
@@ -35,12 +35,13 @@ for i in matriculados.itertuples():
             n_mat_serie_list.append(content[0])
 
 print("quantidade de matriculados do ensino médio ->",len(mat_serie_list))
-
+mat_serie_list.sort()
 plt.hist(mat_serie_list,bins=20)
 plt.show()
 
 
 #Análise dos não matriculados======================================#
 print("quantidade de não matriculados do ensino médio -> ", len(n_mat_serie_list))
+n_mat_serie_list.sort()
 plt.hist(n_mat_serie_list, bins=20)
 plt.show()
